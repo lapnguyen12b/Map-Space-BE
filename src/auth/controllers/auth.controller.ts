@@ -31,7 +31,4 @@ export class AuthController {
     return this.authService.login(loginDto)
   }
 }
-function SerializeAdminToken() {
-  throw new Error('Function not implemented.');
-}
 
