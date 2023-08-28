@@ -1,0 +1,68 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres
+    # restart: always
+    container_name: db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: DBTEST
+      POSTGRES_PASSWORD: postgre
+    # volumes:
+    #   - progresDB:/var/lib/postgresql/data
+    # env_file:
+    #   - ./.env
+    networks:
+      - traefik-proxy
+  service1:
+    # image: node:14
+    build: .
+    container_name: service1
+    command: npm run start:dev
+    working_dir: /app
+    volumes:
+      - "./:/app"
+    # ports:
+    #   - "3000:3000"
+    # environment:
+    #   NODE_ENV: production
+    links:
+      - db:db
+    depends_on:
+      - db
+    environment:
+      - POSTGRES_DB=DBTEST
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgre
+      - POSTGRES_HOST=db
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.service1.rule=PathPrefix(`/api/`)"
+      - "traefik.http.routers.service1.rule=Host(`service1.localhost`) || Host(`service1.com`)"
+      - "traefik.http.services.service1.loadbalancer.server.port=3000"
+    networks:
+      - traefik-proxy
+  traefik:
+    image: traefik:v2.5
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--log.level=INFO"
+      # - "--configFile=/traefik-config.yml"
+    ports:
+      - "8800:8800"
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "./traefik-config.yml:/traefik-config.yml"
+    networks:
+      - traefik-proxy
+volumes:
+  pgdata:
+    driver: local
+networks:
+  traefik-proxy:
+    external: false
