@@ -7,6 +7,8 @@ import { dataBaseConfig } from './config/database.config'
 import { CoreModule } from './core/core.module';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
+import { RoomModule } from './room/room.module';
+import { ImageModule } from './image/image.module';
 
 @Module({
   imports: [
@@ -15,6 +17,8 @@ import { AuthModule } from './auth/auth.module';
     CoreModule,
     AuthModule,
     UserModule,
+    RoomModule,
+    ImageModule,
   ],
   controllers: [AppController],
   providers: [AppService],

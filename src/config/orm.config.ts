@@ -9,7 +9,7 @@ const configDB: ConnectionOptions = {
   username: env.POSTGRES_USER,
   password:  env.POSTGRES_PASSWORD,
   database: env.POSTGRES_DB,
-  entities: [User],
+  entities: ['dist/**/*.entity.{ts,js}'],
   synchronize: true,
   migrationsRun: true,
   logging: true,
