@@ -1,5 +1,6 @@
 import { TIMESTAMP_TYPE } from 'src/constants/constant';
 import { Role, STATUS } from 'src/enums/status.enum';
+import { Room } from 'src/room/entity';
 import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 
 @Entity()
@@ -16,24 +17,33 @@ export class User {
   public updatedAt: Date
 
   @Column({ nullable: false })
-  userName: string
+  public userName: string
 
   @Column({ nullable: false })
-  email: string
+  public email: string
+  
+  @Column({ nullable: false })
+  public phone: string
 
   @Column({ nullable: false })
-  password: string
+  public password: string
 
   @Column({
     type: 'enum',
     enum: Role,
     default: Role.User,
   })
-  role: string;
+  public role: string;
+  
+  @Column({ nullable: false })
+  public isSendEmailWelcome: boolean
 
   @Column({ type: 'text', default: STATUS.ACTIVE })
-  status: STATUS
+  public status: STATUS
 
   @Column({ nullable: true })
   public refreshToken: string
+
+  @OneToMany(() => Room, (room) => room.user)
+  public room: Room;
 }
