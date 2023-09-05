@@ -35,7 +35,7 @@ export class User {
   })
   public role: string;
   
-  @Column({ nullable: false })
+  @Column({ nullable: false, default: false })
   public isSendEmailWelcome: boolean
 
   @Column({ type: 'text', default: STATUS.ACTIVE })
