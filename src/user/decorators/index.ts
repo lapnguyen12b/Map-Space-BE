@@ -1,1 +1,1 @@
-export * from './serialize-admin-token.decorator'
+export * from './serialize-admin-token.decorator';

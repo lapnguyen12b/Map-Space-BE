@@ -1,12 +1,11 @@
-import { IsNotEmpty, IsString } from 'class-validator'
-
+import { IsNotEmpty, IsString } from 'class-validator';
 
 export class RefreshTokenDto {
   @IsNotEmpty()
   @IsString()
-  readonly refreshToken: string
+  readonly refreshToken: string;
 
   @IsNotEmpty()
   @IsString()
-  readonly id: string
+  readonly id: string;
 }

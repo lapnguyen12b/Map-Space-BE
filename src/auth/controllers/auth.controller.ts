@@ -12,23 +12,24 @@ export class AuthController {
 
   @Post('signup')
   async signUp(@Body() dto: UserSignupDto): Promise<User> {
-    return this.authService.signUpUser(dto)
+    return this.authService.signUpUser(dto);
   }
-  
+
   @Post('signin')
   @SerializeUserToken()
   signin(@Body() dto: UserSigninDto): Promise<User> {
-    return this.authService.signin(dto)
+    return this.authService.signin(dto);
   }
 
   @Post('refresh-token')
-  refreshToken(@Body() refreshTokenDto: RefreshTokenDto): Promise<RefreshToken> {
-    return this.authService.refreshToken(refreshTokenDto)
+  refreshToken(
+    @Body() refreshTokenDto: RefreshTokenDto,
+  ): Promise<RefreshToken> {
+    return this.authService.refreshToken(refreshTokenDto);
   }
 
   @Post('login-test-token')
   login(@Body() loginDto: UserLoginDto): string {
-    return this.authService.login(loginDto)
+    return this.authService.login(loginDto);
   }
 }
-

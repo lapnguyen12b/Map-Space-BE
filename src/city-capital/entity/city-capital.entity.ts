@@ -1,17 +1,15 @@
 import { TIMESTAMP_TYPE } from 'src/constants/constant';
-import { Role, STATUS } from 'src/enums/status.enum';
-import { Room } from 'src/room/entity';
+import { STATUS } from 'src/enums/status.enum';
 import {
   Column,
   CreateDateColumn,
   Entity,
-  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
 @Entity()
-export class User {
+export class CityCapital {
   @PrimaryGeneratedColumn('uuid')
   public id: string;
 
@@ -24,33 +22,20 @@ export class User {
   public updatedAt: Date;
 
   @Column({ nullable: false })
-  public userName: string;
+  public cityName: string;
 
   @Column({ nullable: false })
-  public email: string;
+  public lat: string;
 
   @Column({ nullable: false })
-  public phone: string;
+  public lng: string;
 
   @Column({ nullable: false })
-  public password: string;
+  public url: string;
 
-  @Column({
-    type: 'enum',
-    enum: Role,
-    default: Role.User,
-  })
-  public role: string;
-
-  @Column({ nullable: false, default: false })
-  public isSendEmailWelcome: boolean;
+  @Column({ nullable: true })
+  public imageUrl: string;
 
   @Column({ type: 'text', default: STATUS.ACTIVE })
   public status: STATUS;
-
-  @Column({ nullable: true })
-  public refreshToken: string;
-
-  @OneToMany(() => Room, (room) => room.user)
-  public room: Room;
 }
