@@ -29,7 +29,7 @@ export class AuthService {
     const userRepo = this.connection.getCustomRepository(UserRepository);
     const existedUser = await userRepo.getUserByEmail(dto.email);
     if (existedUser && existedUser?.status !== STATUS.INACTIVE) {
-      throw new BadRequestException('User already exists');
+      throw new BadRequestException('User already exists!');
     }
     const pass = this.createHash(password);
     const user = await this.connection.transaction(async (entityManager) => {
