@@ -1,1 +1,1 @@
-export * from './user-access-token.interface'
+export * from './user-access-token.interface';

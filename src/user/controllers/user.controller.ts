@@ -5,10 +5,9 @@ import { JwtAuthGuard } from 'src/core/guards';
 export class UserController {
   onstructor() {}
 
-
   @Get('test/jwt')
   @UseGuards(JwtAuthGuard)
   testJWT(): string {
-    return 'test Authorized'
+    return 'test Authorized';
   }
 }

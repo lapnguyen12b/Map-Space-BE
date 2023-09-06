@@ -1,29 +1,28 @@
-import { Optional } from '@nestjs/common'
-import { IsEmail, IsEnum, IsString } from 'class-validator'
-import { Role, STATUS } from 'src/enums/status.enum'
-
+import { Optional } from '@nestjs/common';
+import { IsEmail, IsEnum, IsString } from 'class-validator';
+import { Role, STATUS } from 'src/enums/status.enum';
 
 export class UserUpdateDto {
   @Optional()
   @IsString()
-  readonly userName: string
+  readonly userName: string;
 
   @Optional()
   @IsString()
-  readonly password: string
+  readonly password: string;
 
   @Optional()
-  readonly isSendEmailWelcome: boolean
+  readonly isSendEmailWelcome: boolean;
 
   @Optional()
   @IsEmail({}, { message: 'Email must be valid' })
-  readonly email: string
+  readonly email: string;
 
   @Optional()
   @IsString()
-  readonly status: STATUS
+  readonly status: STATUS;
 
   @Optional()
   @IsEnum(Role)
-  readonly role: Role
+  readonly role: Role;
 }

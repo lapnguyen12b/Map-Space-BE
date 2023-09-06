@@ -1,21 +1,20 @@
-import { IsEmail, IsEnum, IsNotEmpty, IsString } from 'class-validator'
-import { Role } from 'src/enums/status.enum'
-
+import { IsEmail, IsEnum, IsNotEmpty, IsString } from 'class-validator';
+import { Role } from 'src/enums/status.enum';
 
 export class UserSignupDto {
   @IsNotEmpty()
   @IsString()
-  readonly userName: string
+  readonly userName: string;
 
   @IsNotEmpty()
   @IsString()
-  readonly password: string
+  readonly password: string;
 
   @IsNotEmpty()
   @IsEmail({}, { message: 'Email must be valid' })
-  readonly email: string
+  readonly email: string;
 
   @IsNotEmpty()
   @IsEnum(Role)
-  readonly role: Role
+  readonly role: Role;
 }

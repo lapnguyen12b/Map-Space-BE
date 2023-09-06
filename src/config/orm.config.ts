@@ -7,7 +7,7 @@ const configDB: ConnectionOptions = {
   host: env.POSTGRES_HOST,
   port: env.POSTGRES_PORT,
   username: env.POSTGRES_USER,
-  password:  env.POSTGRES_PASSWORD,
+  password: env.POSTGRES_PASSWORD,
   database: env.POSTGRES_DB,
   entities: ['dist/**/*.entity.{ts,js}'],
   synchronize: true,
@@ -18,5 +18,5 @@ const configDB: ConnectionOptions = {
   cli: {
     migrationsDir: 'src/migrations',
   },
-}
-export = configDB
+};
+export = configDB;
