@@ -14,6 +14,10 @@ import {
 
 @Entity()
 export class Room {
+  // constructor(payload: Partial<Room>) {
+  // Object.assign(this, payload);
+  // }
+
   @PrimaryGeneratedColumn('uuid')
   public id: string;
 
@@ -29,10 +33,10 @@ export class Room {
   @UpdateDateColumn({ type: TIMESTAMP_TYPE })
   public expiryDate: Date;
 
-  @Column({ nullable: false })
+  @Column({ nullable: false, default: '' })
   public title: string;
 
-  @Column({ nullable: false })
+  @Column({ nullable: false, default: '' })
   public description: string;
 
   @Column({ nullable: false })
@@ -59,10 +63,10 @@ export class Room {
   @Column({ nullable: false, default: SERVICE_TYPE.LEASE })
   public service: SERVICE_TYPE;
 
-  @Column()
+  @Column({ nullable: false, default: 0 })
   public numberOfProple: number;
 
-  @Column()
+  @Column({ nullable: false, default: 0 })
   public peopleLook: number;
 
   @ManyToOne(() => User, (user) => user.room, {
