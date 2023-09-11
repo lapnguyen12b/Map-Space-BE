@@ -15,9 +15,15 @@ import { AuthModule } from './auth/auth.module';
 import { RoomModule } from './room/room.module';
 import { ImageModule } from './image/image.module';
 import { CityCapitalModule } from './city-capital/city-capital.module';
+import { ConfigModule } from '@nestjs/config';
+import { FileModule } from './files';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      envFilePath: ['.env.development', '.env'],
+      isGlobal: true,
+    }),
     dataBaseConfig,
     LoggerModule,
     CoreModule,
@@ -26,6 +32,7 @@ import { CityCapitalModule } from './city-capital/city-capital.module';
     RoomModule,
     ImageModule,
     CityCapitalModule,
+    FileModule,
   ],
   controllers: [AppController],
   providers: [AppService],
