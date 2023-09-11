@@ -13,7 +13,7 @@ import { IStorageService } from 'src/core/types';
 @Injectable()
 export class AwsS3Service implements IStorageService {
   private _s3: S3;
-  private _s3Bucket?: string;
+  private _s3Bucket: string;
   private _temporaryFolder: string;
   private _urlPrefix: string;
   private _uploadPresignTTL = 30 * 60;
@@ -27,7 +27,7 @@ export class AwsS3Service implements IStorageService {
     });
     this._temporaryFolder =
       _configService.get('S3_UPLOAD_FOLDER') || 'temporary';
-    this._s3Bucket = _configService.get('S3_BUCKET');
+    this._s3Bucket = _configService.get('S3_BUCKET')!;
     this._urlPrefix = `https://${this._s3Bucket}.s3.${_configService.get(
       'REGION',
     )}.amazonaws.com`;
