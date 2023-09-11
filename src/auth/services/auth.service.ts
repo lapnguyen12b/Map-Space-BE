@@ -25,7 +25,7 @@ export class AuthService {
   ) {}
 
   async signUpUser(dto: UserSignupDto): Promise<User> {
-    const { userName, password } = dto;
+    const { userName, password, email } = dto;
     const userRepo = this.connection.getCustomRepository(UserRepository);
     const existedUser = await userRepo.getUserByEmail(dto.email);
     if (existedUser && existedUser?.status !== STATUS.INACTIVE) {
@@ -43,6 +43,9 @@ export class AuthService {
       });
       return newUser;
     });
+
+    //Queue send email Welcome
+    await this.userService.sendEmailRegister(email, userName);
 
     return user;
   }

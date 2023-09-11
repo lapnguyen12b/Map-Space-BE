@@ -17,6 +17,8 @@ import { ImageModule } from './image/image.module';
 import { CityCapitalModule } from './city-capital/city-capital.module';
 import { ConfigModule } from '@nestjs/config';
 import { FileModule } from './files';
+import { BullModule } from '@nestjs/bull';
+import { env } from './config/env.config';
 
 @Module({
   imports: [
@@ -33,6 +35,14 @@ import { FileModule } from './files';
     ImageModule,
     CityCapitalModule,
     FileModule,
+    BullModule.forRoot({
+      redis: {
+        host: env.REDIS.HOST,
+        port: env.REDIS.PORT,
+        username: env.REDIS.USER,
+        password: env.REDIS.PASS,
+      },
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],
