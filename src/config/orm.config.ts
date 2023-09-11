@@ -1,6 +1,5 @@
-import { User } from 'src/user/entity';
 import { ConnectionOptions } from 'typeorm';
-import { env } from 'src/config/env.config';
+import { env } from './env.config';
 
 const configDB: ConnectionOptions = {
   type: 'postgres',

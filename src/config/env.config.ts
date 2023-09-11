@@ -13,4 +13,11 @@ export const env = {
   ROOT_PATH: path.join(__dirname, '..'),
   ACCESS_TOKEN_SECRET: process.env.ACCESS_TOKEN_SECRET,
   REFRESH_TOKEN_SECRET: process.env.REFRESH_TOKEN_SECRET,
+  REDIS: {
+    HOST: process.env.REDIS_HOST,
+    PORT: Number(process.env.REDIS_PORT || 6379),
+    USER: process.env.REDIS_USER,
+    PASS: process.env.REDIS_PASS,
+  },
+  APP_NAME: process.env.APP_NAME,
 };
