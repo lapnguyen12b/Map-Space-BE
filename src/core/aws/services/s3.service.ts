@@ -21,8 +21,8 @@ export class AwsS3Service implements IStorageService {
     this._s3 = new S3({
       region: _configService.get('REGION'),
       credentials: {
-        accessKeyId: _configService.get('AWS_ACCESS_KEY_ID').toString(),
-        secretAccessKey: _configService.get('AWS_SECRET_ACCESS_KEY').toString(),
+        accessKeyId: _configService.get('AWS_ACCESS_KEY_ID')!,
+        secretAccessKey: _configService.get('AWS_SECRET_ACCESS_KEY')!,
       },
     });
     this._temporaryFolder =
