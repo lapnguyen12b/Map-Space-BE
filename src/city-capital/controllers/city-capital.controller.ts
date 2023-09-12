@@ -9,13 +9,13 @@ export class CityCapitalController {
   constructor(private readonly cityCapitalService: CityCapitalService) {}
 
   @Post()
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   async addNewCity(@Body() cityDto: CityDto): Promise<CityCapital> {
     return this.cityCapitalService.addNewCity(cityDto);
   }
 
   @Get('top')
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   async getTopCity(): Promise<CityCapital[]> {
     return this.cityCapitalService.getTopCity();
   }
