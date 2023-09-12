@@ -23,7 +23,4 @@ export class FileService implements IFileService {
     );
     return upload.url;
   }
-  async remove(filename: string): Promise<void> {
-    await this._storageService.remove(filename);
-  }
 }
