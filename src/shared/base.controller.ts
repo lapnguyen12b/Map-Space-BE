@@ -48,12 +48,3 @@ export type ResponseOption = {
   skip?: number;
   take?: number;
 };
-
-export type CarzHeader = {
-  os?: string;
-  appVersion?: string;
-  deviceId?: string;
-  osVersion?: string;
-  agent?: string;
-  apiVersion?: string;
-};

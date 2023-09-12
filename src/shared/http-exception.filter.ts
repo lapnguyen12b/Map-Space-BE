@@ -9,6 +9,15 @@ import { Request, Response } from 'express';
 
 @Catch(HttpException)
 export class HttpExceptionFilter implements ExceptionFilter {
+  static throwErrorMessage(
+    exception: ResponseException,
+    statusCode = HttpStatus.BAD_REQUEST,
+  ) {
+    exception['code'] = exception?.code || 'some_thing_went_wrong';
+    exception['code'] = exception?.message || 'Some thing went wrong!';
+    throw new HttpException(exception, statusCode);
+  }
+
   public catch(exception: HttpException, host: ArgumentsHost) {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse<Response>();
