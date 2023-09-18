@@ -15,11 +15,18 @@ import { AuthModule } from './auth/auth.module';
 import { RoomModule } from './room/room.module';
 import { ImageModule } from './image/image.module';
 import { CityCapitalModule } from './city-capital/city-capital.module';
+import { ConfigModule } from '@nestjs/config';
+import { FileModule } from './files';
 import { BullModule } from '@nestjs/bull';
 import { env } from './config/env.config';
+import { ExternalModule } from './external-services';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      envFilePath: ['.env.development', '.env'],
+      isGlobal: true,
+    }),
     dataBaseConfig,
     LoggerModule,
     CoreModule,
@@ -28,6 +35,7 @@ import { env } from './config/env.config';
     RoomModule,
     ImageModule,
     CityCapitalModule,
+    FileModule,
     BullModule.forRoot({
       redis: {
         host: env.REDIS.HOST,
@@ -36,6 +44,7 @@ import { env } from './config/env.config';
         password: env.REDIS.PASS,
       },
     }),
+    ExternalModule,
   ],
   controllers: [AppController],
   providers: [AppService],

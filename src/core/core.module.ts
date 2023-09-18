@@ -1,8 +1,10 @@
-import { Module } from '@nestjs/common';
+import { Global, Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { env } from 'process';
+import { AwsModule } from './aws';
 
+@Global()
 @Module({
   imports: [
     PassportModule,
@@ -15,6 +17,8 @@ import { env } from 'process';
         },
       }),
     }),
+    AwsModule,
   ],
+  exports: [AwsModule],
 })
 export class CoreModule {}
