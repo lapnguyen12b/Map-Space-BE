@@ -40,6 +40,7 @@ export class AwsS3Service implements IStorageService {
   }
   public async uploadFile(file: Express.Multer.File) {
     const filePath = this._generateFilePath();
+    
     const command = new PutObjectCommand({
       Bucket: process.env.S3_BUCKET,
       Body: file.buffer,

@@ -37,6 +37,8 @@
     "class-validator": "^0.13.2",
     "dotenv": "^16.0.2",
     "env": "^0.0.2",
+    "@nestjs/microservices": "~9.2.1",
+    "@nestjs/axios": "^3.0.0",
     "mysql2": "^2.3.3",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.0",

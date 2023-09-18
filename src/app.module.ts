@@ -19,6 +19,7 @@ import { ConfigModule } from '@nestjs/config';
 import { FileModule } from './files';
 import { BullModule } from '@nestjs/bull';
 import { env } from './config/env.config';
+import { ExternalModule } from './external-services';
 
 @Module({
   imports: [
@@ -43,6 +44,7 @@ import { env } from './config/env.config';
         password: env.REDIS.PASS,
       },
     }),
+    ExternalModule,
   ],
   controllers: [AppController],
   providers: [AppService],

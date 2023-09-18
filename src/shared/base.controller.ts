@@ -28,7 +28,7 @@ export class BaseController {
 
     res.status(status).send({
       status,
-      message: message,
+      message,
       data: data,
       total,
       code,
