@@ -69,11 +69,6 @@ export class Room {
   @Column({ nullable: false, default: 0 })
   public peopleLook: number;
 
-  @ManyToOne(() => User, (user) => user.room, {
-    cascade: true,
-  })
-  public user: User;
-
   @OneToMany(() => Images, (images) => images.room)
   public images: Images[];
 }

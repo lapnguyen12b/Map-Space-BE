@@ -36,3 +36,4 @@ lerna-debug.log*
 
 # Large media files
 .env
+yarn.lock
