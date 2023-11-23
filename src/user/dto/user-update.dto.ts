@@ -1,6 +1,6 @@
 import { Optional } from '@nestjs/common';
 import { IsEmail, IsEnum, IsString } from 'class-validator';
-import { Role, STATUS } from 'src/enums/status.enum';
+import { ROLE, STATUS } from 'src/enums/status.enum';
 
 export class UserUpdateDto {
   @Optional()
@@ -23,6 +23,6 @@ export class UserUpdateDto {
   readonly status: STATUS;
 
   @Optional()
-  @IsEnum(Role)
-  readonly role: Role;
+  @IsEnum(ROLE)
+  readonly role: ROLE;
 }

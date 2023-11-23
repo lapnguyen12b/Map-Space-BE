@@ -5,7 +5,7 @@ import {
   IsNumber,
   IsString,
 } from 'class-validator';
-import { Role, SERVICE_TYPE } from 'src/enums/status.enum';
+import { ROLE, SERVICE_TYPE } from 'src/enums/status.enum';
 
 export class AddRoomDto {
   @IsNotEmpty()

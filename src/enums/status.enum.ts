@@ -1,12 +1,13 @@
 export enum STATUS {
-  ACTIVE = 'active',
-  INACTIVE = 'inactive',
+  ACTIVE = 'ACTIVE',
+  INACTIVE = 'INACTIVE',
 }
 
-export enum Role {
-  Admin = 'ADMIN',
-  User = 'USER',
-  Seller = 'SELLER',
+export enum ROLE {
+  ADMIN = 'ADMIN',
+  USER = 'USER',
+  DOCTOR = 'DOCTOR',
+  MEDICAL = 'MEDICAL',
 }
 
 export enum SERVICE_TYPE {

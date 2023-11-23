@@ -1,28 +1,13 @@
-import { TIMESTAMP_TYPE } from 'src/constants/constant';
-import { Role, STATUS } from 'src/enums/status.enum';
-import { Room } from 'src/room/entity';
+import { BaseColumn } from 'src/core/entity/base';
+import { ROLE, STATUS } from 'src/enums/status.enum';
 import {
   Column,
-  CreateDateColumn,
   Entity,
   OneToMany,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
 } from 'typeorm';
 
 @Entity()
-export class User {
-  @PrimaryGeneratedColumn('uuid')
-  public id: string;
-
-  @Column({ type: TIMESTAMP_TYPE, default: () => 'CURRENT_TIMESTAMP' })
-  @CreateDateColumn({ type: TIMESTAMP_TYPE })
-  public createdAt: Date;
-
-  @Column({ type: TIMESTAMP_TYPE, default: () => 'CURRENT_TIMESTAMP' })
-  @UpdateDateColumn({ type: TIMESTAMP_TYPE })
-  public updatedAt: Date;
-
+export class User extends BaseColumn {
   @Column({ nullable: false })
   public userName: string;
 
@@ -37,8 +22,8 @@ export class User {
 
   @Column({
     type: 'enum',
-    enum: Role,
-    default: Role.User,
+    enum: ROLE,
+    default: ROLE.USER,
   })
   public role: string;
 
@@ -50,7 +35,4 @@ export class User {
 
   @Column({ nullable: true })
   public refreshToken: string;
-
-  @OneToMany(() => Room, (room) => room.user)
-  public room: Room;
 }
