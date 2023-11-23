@@ -55,3 +55,5 @@ npm run typeorm migration:create -- -n <name>
 npm run typeorm migration:run
 npm run typeorm migration:revert
 ```
+
+test release, tags
