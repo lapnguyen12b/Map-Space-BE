@@ -20,6 +20,9 @@ import { FileModule } from './files';
 import { BullModule } from '@nestjs/bull';
 import { env } from './config/env.config';
 import { ExternalModule } from './external-services';
+import { ReviewsModule } from './reviews/reviews.module';
+import { CategoriesModule } from './categories/categories.module';
+import { ProfileModule } from './profile/profile.module';
 
 @Module({
   imports: [
@@ -45,6 +48,9 @@ import { ExternalModule } from './external-services';
       },
     }),
     ExternalModule,
+    ProfileModule,
+    CategoriesModule,
+    ReviewsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
