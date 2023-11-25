@@ -14,3 +14,13 @@ export enum SERVICE_TYPE {
   LEASE = 'LEASE',
   SELL = 'SELL',
 }
+
+export enum GENDER {
+  MALE = 'MALE',
+  FEMALE = 'FEMALE',
+}
+
+export enum DOCTORSTATUS {
+  WORKING = 'WORKING',
+  PENDING = 'PENDING',
+}
