@@ -24,3 +24,9 @@ export enum DOCTORSTATUS {
   WORKING = 'WORKING',
   PENDING = 'PENDING',
 }
+
+export enum AppointmentStatus {
+  pending = 'pending',
+  completed = 'completed',
+  canceled = 'canceled',
+}

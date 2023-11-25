@@ -14,7 +14,7 @@ export class Profile extends BaseColumn {
   })
   public gender: GENDER;
 
-  @Column({ type: TIMESTAMP_TYPE, default: null})
+  @Column({ type: TIMESTAMP_TYPE, default: null })
   public dob: Date;
 
   @Column({ nullable: true })
