@@ -14,7 +14,6 @@ import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { RoomModule } from './room/room.module';
 import { ImageModule } from './image/image.module';
-import { CityCapitalModule } from './city-capital/city-capital.module';
 import { ConfigModule } from '@nestjs/config';
 import { FileModule } from './files';
 import { BullModule } from '@nestjs/bull';
@@ -23,6 +22,9 @@ import { ExternalModule } from './external-services';
 import { ReviewsModule } from './reviews/reviews.module';
 import { CategoriesModule } from './categories/categories.module';
 import { ProfileModule } from './profile/profile.module';
+import { NotificationsModule } from './notifications/notifications.module';
+import { AppointmentModule } from './appointment/appointment.module';
+import { FavoritesModule } from './favorites/favorites.module';
 
 @Module({
   imports: [
@@ -37,7 +39,6 @@ import { ProfileModule } from './profile/profile.module';
     UserModule,
     RoomModule,
     ImageModule,
-    CityCapitalModule,
     FileModule,
     BullModule.forRoot({
       redis: {
@@ -51,6 +52,9 @@ import { ProfileModule } from './profile/profile.module';
     ProfileModule,
     CategoriesModule,
     ReviewsModule,
+    NotificationsModule,
+    AppointmentModule,
+    FavoritesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
