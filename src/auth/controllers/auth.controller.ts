@@ -5,8 +5,11 @@ import { User } from 'src/user/entity';
 import { RefreshTokenDto } from '../dto';
 import { RefreshToken } from '../interfaces';
 import { AuthService } from '../services';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
 @Controller('auth')
+@ApiTags('Auth')
+@ApiBearerAuth()
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
