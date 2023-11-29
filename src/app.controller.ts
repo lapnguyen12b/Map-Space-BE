@@ -7,13 +7,13 @@ import { IExternalNotificationService } from './external-services';
 export class AppController {
   constructor(
     private readonly appService: AppService,
-    @Inject(ExternalServices.NotificationService)
-    private _externalNotificationService: IExternalNotificationService,
+    // @Inject(ExternalServices.NotificationService)
+    // private _externalNotificationService: IExternalNotificationService,
   ) {}
 
   @Get()
   getHello() {
-    return this._externalNotificationService.pingNotification();
+    // return this._externalNotificationService.pingNotification();
     return this.appService.getHello();
   }
 }
