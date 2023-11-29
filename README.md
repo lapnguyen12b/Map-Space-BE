@@ -58,5 +58,5 @@ npm run typeorm migration:revert
 
 ### Swagger
 ```
-http://localhost:3000/api
+http://localhost:3000/api-docs
 ```
