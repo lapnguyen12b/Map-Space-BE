@@ -18,7 +18,7 @@ import { ConfigModule } from '@nestjs/config';
 import { FileModule } from './files';
 import { BullModule } from '@nestjs/bull';
 import { env } from './config/env.config';
-import { ExternalModule } from './external-services';
+// import { ExternalModule } from './external-services';
 import { ReviewsModule } from './reviews/reviews.module';
 import { CategoriesModule } from './categories/categories.module';
 import { ProfileModule } from './profile/profile.module';
@@ -48,7 +48,7 @@ import { FavoritesModule } from './favorites/favorites.module';
         password: env.REDIS.PASS,
       },
     }),
-    ExternalModule,
+    // ExternalModule,
     ProfileModule,
     CategoriesModule,
     ReviewsModule,

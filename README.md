@@ -56,4 +56,7 @@ npm run typeorm migration:run
 npm run typeorm migration:revert
 ```
 
-test release, tags
+### Swagger
+```
+http://localhost:3000/api
+```
