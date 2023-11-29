@@ -13,7 +13,10 @@ import { JwtAuthGuard } from 'src/core/guards';
 import { AddRoomDto } from '../dto';
 import { Room } from '../entity';
 import { IPagination } from '../interface';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Room')
+@ApiBearerAuth()
 @Controller('room')
 export class RoomController {
   constructor(private readonly roomService: RoomService) {}
