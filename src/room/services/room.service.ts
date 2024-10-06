@@ -9,6 +9,7 @@ export class RoomService {
   constructor(private connection: Connection) {}
 
   async addNewRoom(dto: AddRoomDto): Promise<Room> {
+    // commit
     const {
       title = '',
       description,
