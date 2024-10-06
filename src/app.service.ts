@@ -7,6 +7,7 @@ export class AppService {
   async getHello() {
     console.log(env.ROOT_PATH);
     //D:\nestjs\dist
+    // TODO
     return 'Hello World! 123';
   }
 }
